@@ -25,7 +25,7 @@ module Docile
       block_context.instance_variables.each do |ivar|
         proxy_context.instance_variable_set(ivar, block_context.instance_variable_get(ivar))
       end
-      proxy_context.instance_exec(*args,&block)
+      proxy_context.instance_exec(*args, &block)
     ensure
       block_context.instance_variables.each do |ivar|
         block_context.instance_variable_set(ivar, proxy_context.instance_variable_get(ivar))
